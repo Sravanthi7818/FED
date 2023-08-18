@@ -1,86 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
+ 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>exp4</title>
-	<style type="text/css">
-		.c{
-			width: 97px;
-			height: 65px;
-			background-color: white;
-			font-size: 20px;
-		}
-		.t{
-			margin-top: 3px;
-			font-size: 30px;
-			height: 65px;
-			width: 400px;
-		}
-		table{
-			width: 400px;
-			height: 400px;
-		}
-		
-	</style>
-	<script type="text/javascript">
-		function insert(num)   
-           {  
-              document.f.ans.value = document.f.ans.value + num;  
-           } 
-           function equal()  
-           {  
-              var exp = document.f.ans.value;  
-              if(exp)  
-                {  
-                  document.f.ans.value = eval(exp); 
-                }  
-            }  
-            function backspace()  
-            {  
-               var exp = document.f.ans.value;  
-               document.f.ans.value = exp.substring(0, exp.length - 1); 
-            }   
-	</script>
+  <meta charset="utf-8">
+  <title>Simple Calculator using HTML, CSS and JavaScript</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+ 
 <body>
-	<center>
-  <table bgcolor="grey">
-  	<tr>
-  		<form name="f">
-  		<td colspan="4"><input class="t" type="text" name="ans"></td></form>
-  	</tr>
-  	<tr>
-  		<td><input class="c" type="button" value="(" onclick = "insert('(')" ></td>
-  		<td><input class="c" type="button" value="CE" onclick = "f.ans.value = ' ' " ></td>
-  		<td><input class="c" type="button" value=")" onclick = "insert(')')" ></td>
-  		<td><input class="c" type="button" value="C" onclick = "backspace()"></td>
-  	</tr>
-  	<tr>
-  		<td><input class="c" type="button" value="1" onclick = "insert('1')" ></td>
-  		<td><input class="c" type="button" value="2" onclick = "insert('2')" ></td>
-  		<td><input class="c" type="button" value="3" onclick = "insert('3')" ></td>
-  		<td><input class="c" type="button" value="+" onclick = "insert('+')" ></td>
-  	</tr>
-  	<tr>
-  		<td><input class="c" type="button" value="4" onclick = "insert('4')" ></td>
-  		<td><input class="c" type="button" value="5" onclick = "insert('5')" ></td>
-  		<td><input class="c" type="button" value="6" onclick = "insert('6')" ></td>
-  		<td><input class="c" type="button" value="-" onclick = "insert('-')" ></td>
-  	</tr>
-  	<tr>
-  		<td><input class="c" type="button" value="7" onclick="insert('7')"></td>
-  		<td><input class="c" type="button" value="8" onclick = "insert('8')" ></td>
-  		<td><input class="c" type="button" value="9" onclick = "insert('9')" ></td>
-  		<td><input class="c" type="button" value="*" onclick = "insert('*')" ></td>
-  	</tr>
-  	<tr>
-  		<td><input class="c" type="button" value="." onclick = "insert('.')" ></td>
-  		<td><input class="c" type="button" value="0" onclick = "insert('0')" ></td>
-  		<td><input class="c" type="button" value="=" onclick = "equal()"></td>
-  		<td><input class="c" type="button" value="/" onclick = "insert('/')" ></td>
-  	</tr>
-  </table>
-  </center>
+ 
+<table class="calculator" >
+  <tr>
+    <td colspan="3"> <input class="display-box" type="text" id="result" disabled /> </td>
+ 
+    <!-- clearScreen() function clears all the values -->
+    <td> <input type="button" value="C" onclick="clearScreen()" id="btn" /> </td>
+  </tr>
+  <tr>
+    <!-- display() function displays the value of clicked button -->
+    <td> <input type="button" value="1" onclick="display('1')" /> </td>
+    <td> <input type="button" value="2" onclick="display('2')" /> </td>
+    <td> <input type="button" value="3" onclick="display('3')" /> </td>
+    <td> <input type="button" value="/" onclick="display('/')" /> </td>
+  </tr>
+  <tr>
+    <td> <input type="button" value="4" onclick="display('4')" /> </td>
+    <td> <input type="button" value="5" onclick="display('5')" /> </td>
+    <td> <input type="button" value="6" onclick="display('6')" /> </td>
+    <td> <input type="button" value="-" onclick="display('-')" /> </td>
+  </tr>
+  <tr>
+    <td> <input type="button" value="7" onclick="display('7')" /> </td>
+    <td> <input type="button" value="8" onclick="display('8')" /> </td>
+    <td> <input type="button" value="9" onclick="display('9')" /> </td>
+    <td> <input type="button" value="+" onclick="display('+')" /> </td>
+  </tr>
+  <tr>
+    <td> <input type="button" value="." onclick="display('.')" /> </td>
+    <td> <input type="button" value="0" onclick="display('0')" /> </td>
+ 
+    <!-- calculate() function evaluates the mathematical expression -->
+    <td> <input type="button" value="=" onclick="calculate()" id="btn" /> </td>
+    <td> <input type="button" value="*" onclick="display('*')" /> </td>
+  </tr>
+</table>
+ 
+<script type="text/javascript" src="script.js"></script>
+ 
 </body>
+ 
 </html>
